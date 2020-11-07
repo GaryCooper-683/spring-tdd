@@ -1,9 +1,9 @@
 pipeline {
-agent { docker 'maven:3-alpine' }
+agent any
 stages {
 stage('Example Build') {
 steps {
-sh 'mvn clean'
+sh 'echo "hello world"'
 }
 }
 }
