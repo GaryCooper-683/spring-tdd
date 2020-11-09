@@ -12,9 +12,9 @@ pipeline {
                 sh 'ls -a'      
             }
         }
-        stage('Lint') {
+        stage('Push') {
             steps {
-                sh 'echo "Hello World"'
+                sh 'aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 395312722260.dkr.ecr.us-west-2.amazonaws.com'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
