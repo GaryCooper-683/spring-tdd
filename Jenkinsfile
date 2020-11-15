@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Spring Deploy') {
             steps {
-                script {kubernetesDeploy(configs: "service.yaml", kubeconfigId: "spring-kubeconfig")
+                script {kubernetesDeploy(configs: "service.yml", kubeconfigId: "spring-kubeconfig")
         }
                 }
         }        
