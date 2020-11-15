@@ -25,9 +25,10 @@ pipeline {
                 sh 'docker push 395312722260.dkr.ecr.us-west-2.amazonaws.com/spring-api:latest'
             }
         }
-        stage('Cloudformation') {
+        stage('Spring Deploy') {
             steps {
-                sh 'aws cloudformation create-stack --stack-name myteststack --template-body file://Cloudformation/eks.yaml'
+                script {kubernetesDeploy(configs: "service.yaml", kubeconfigId: "spring-kubeconfig")
+        }
                 }
         }        
     }
